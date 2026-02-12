@@ -1,1 +1,99 @@
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
 
+body{
+  font-family:'Inter',sans-serif;
+  background:#f5f5f7;
+  color:#1d1d1f;
+  text-align:center;
+}
+
+section{
+  padding:120px 8%;
+}
+
+/* HERO */
+
+.hero{
+  padding-top:150px;
+}
+
+.hero h1{
+  font-size:4rem;
+  font-weight:700;
+}
+
+.hero p{
+  font-size:1.3rem;
+  margin-top:10px;
+  color:#6e6e73;
+}
+
+.hero img{
+  margin-top:60px;
+  width:400px;
+  max-width:90%;
+}
+
+/* FEATURE */
+
+.feature{
+  background:white;
+}
+
+.feature.dark{
+  background:#000;
+  color:white;
+}
+
+.feature h2{
+  font-size:2.5rem;
+}
+
+.feature p{
+  margin-top:20px;
+  font-size:1.1rem;
+  opacity:.7;
+}
+
+/* SPECS */
+
+.spec-grid{
+  margin-top:60px;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+  gap:40px;
+}
+
+.spec-grid h3{
+  font-size:2rem;
+}
+
+/* CTA */
+
+.cta{
+  background:#000;
+  color:white;
+}
+
+.cta h2{
+  font-size:2.5rem;
+}
+
+.cta button{
+  margin-top:40px;
+  padding:15px 40px;
+  border:none;
+  border-radius:40px;
+  font-size:1rem;
+  cursor:pointer;
+  background:white;
+  transition:.3s;
+}
+
+.cta button:hover{
+  background:#ddd;
+}
