@@ -151,3 +151,25 @@ body{
   opacity:0;
   transform:translateY(80px);
 }
+.footer{
+  padding:40px 8%;
+  text-align:center;
+  background:#000;
+  border-top:1px solid rgba(0,119,255,0.2);
+}
+
+.footer p{
+  margin:10px 0;
+  opacity:.7;
+}
+
+.footer a{
+  color:#1e90ff;
+  text-decoration:none;
+  font-weight:bold;
+  transition:.3s;
+}
+
+.footer a:hover{
+  text-shadow:0 0 10px rgba(0,119,255,.7);
+}
