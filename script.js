@@ -7,17 +7,6 @@ gsap.from(".hero-content", {
   duration: 1.5,
   ease: "power4.out"
 });
-gsap.from(".watch-main", {
-  opacity: 0,
-  x: 100,
-  duration: 1.5
-});
-gsap.from(".watch-side", {
-  opacity: 0,
-  x: -100,
-  duration: 1.5,
-  delay: 0.3
-});
 
 // Reveal Sections on Scroll
 gsap.utils.toArray(".reveal").forEach((el) => {
@@ -56,41 +45,6 @@ counters.forEach(counter => {
       update();
     }
   });
-});
-
-// Botão flutuante scroll
-document.querySelector(".floating-btn").addEventListener("click", () => {
-  document.querySelector(".hero").scrollIntoView({ behavior: "smooth" });
-});
-
-// Parallax nas imagens do hero (scroll)
-gsap.to(".watch-main", {
-  y: 30,
-  scrollTrigger: {
-    trigger: ".hero",
-    start: "top top",
-    end: "bottom top",
-    scrub: true
-  }
-});
-
-gsap.to(".watch-side", {
-  y: -30,
-  scrollTrigger: {
-    trigger: ".hero",
-    start: "top top",
-    end: "bottom top",
-    scrub: true
-  }
-});
-
-// Parallax nas imagens do hero (mouse move)
-const hero = document.querySelector(".hero");
-hero.addEventListener("mousemove", (e) => {
-  const x = (e.clientX / window.innerWidth - 0.5) * 30;
-  const y = (e.clientY / window.innerHeight - 0.5) * 30;
-  gsap.to(".watch-main", { x: x, y: y, duration: 0.5 });
-  gsap.to(".watch-side", { x: x * 0.5, y: y * 0.5, duration: 0.5 });
 });
 
 // Partículas leves no background (canvas)
