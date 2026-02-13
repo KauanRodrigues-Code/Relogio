@@ -16,7 +16,6 @@ body{
 }
 
 /* HERO */
-
 .hero{
   min-height:100vh;
   display:flex;
@@ -63,7 +62,6 @@ body{
 }
 
 /* HERO IMAGENS */
-
 .hero-images{
   position:relative;
   width:400px;
@@ -76,19 +74,20 @@ body{
   width:100%;
   filter:drop-shadow(0 0 30px rgba(0,119,255,.6));
   will-change:transform;
-  border-radius:20px; /* suaviza as bordas da imagem real */
+  border-radius:20px;
   object-fit:cover;
+  transition: transform 0.5s;
 }
 
-.watch-side{
-  top:40px;
-  left:-60px;
-  width:80%;
-  opacity:.6;
+.watch-main:hover {
+  transform: scale(1.05) rotate(3deg);
+}
+
+.watch-side:hover {
+  transform: scale(1.05) rotate(-3deg);
 }
 
 /* COMPARAÇÃO */
-
 .comparison{
   padding:120px 8%;
   text-align:center;
@@ -127,7 +126,6 @@ body{
 }
 
 /* ESPECIFICAÇÕES */
-
 .specs{
   padding:120px 8%;
   text-align:center;
@@ -158,19 +156,17 @@ body{
 }
 
 /* REVEAL (GSAP) */
-
 .reveal{
   opacity:0;
   transform:translateY(80px);
 }
 
 /* FOOTER */
-
 .footer{
   padding:40px 8%;
   text-align:center;
   background:#000;
-  border-top:1px solid rgba(0,119,255,0.2);
+  border-top:1px solid rgba(0,119,255,.2);
 }
 
 .footer p{
@@ -189,8 +185,35 @@ body{
   text-shadow:0 0 10px rgba(0,119,255,.7);
 }
 
-/* RESPONSIVO */
+/* BOTÃO FLUTUANTE */
+.floating-btn {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  padding: 20px 50px;
+  border-radius: 50px;
+  background: linear-gradient(90deg,#0077ff,#00c3ff);
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 0 20px rgba(0,119,255,0.5);
+  z-index: 1000;
+  animation: pulse 2s infinite;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
 
+@keyframes pulse {
+  0% { transform: scale(1); box-shadow: 0 0 20px rgba(0,119,255,0.5); }
+  50% { transform: scale(1.05); box-shadow: 0 0 35px rgba(0,119,255,0.7); }
+  100% { transform: scale(1); box-shadow: 0 0 20px rgba(0,119,255,0.5); }
+}
+
+.floating-btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 50px rgba(0,119,255,0.9);
+}
+
+/* RESPONSIVO */
 @media(max-width:900px){
   .hero{
     flex-direction:column-reverse;
