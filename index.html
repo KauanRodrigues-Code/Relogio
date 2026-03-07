@@ -1,91 +1,166 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Smartwatch Inteligente</title>
 
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- GSAP -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+<title>Street WS</title>
+
+<link rel="stylesheet" href="css/style.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
 </head>
+
 <body>
 
-<!-- HERO -->
+<div id="loader">
+<div class="loader-logo">WS</div>
+</div>
+
+<header>
+
+<img src="img/logo.png" class="logo-header">
+
+<nav>
+
+<a href="#sobre">Quem Somos</a>
+<a href="#produtos">Produtos</a>
+<a href="#beneficios">Por que nós?</a>
+<a href="#contato">Contato</a>
+
+</nav>
+
+</header>
+
 <section class="hero">
-  <div class="hero-content">
-    <h1>Smartwatch Inteligente</h1>
-    <p>O futuro está no seu <span class="highlight">pulso</span>.</p>
-  </div>
+
+<div class="parallax-bg"></div>
+
+<h1 class="titulo">Street WS</h1>
+
+<p class="subtitulo">
+Estilo urbano. Atitude. Streetwear de verdade.
+</p>
+
+<a href="#produtos" class="botao">
+Ver Coleção
+</a>
+
 </section>
 
-<!-- COMPARAÇÃO -->
-<section class="comparison">
-  <h2>Por que escolher o <span class="highlight">Smartwatch Inteligente</span>?</h2>
+<section id="sobre" class="sobre reveal">
 
-  <div class="compare-grid">
-    <div class="card reveal">
-      <h3>Smartwatch Inteligente</h3>
-      <img src="https://images.unsplash.com/photo-1525182008055-f88b95ff7980" alt="Smartwatch adicional" style="width:100%; border-radius:15px; margin-bottom:15px;">
-      <ul>
-        <li>Bateria 7 dias</li>
-        <li>Tela AMOLED</li>
-        <li>Monitor cardíaco 24h</li>
-        <li>Preço acessível</li>
-      </ul>
-    </div>
+<h2>Quem Somos</h2>
 
-    <div class="card reveal">
-      <h3>Apple Watch</h3>
-      <img src="https://images.unsplash.com/photo-1525182008055-f88b95ff7980" alt="Apple Watch" style="width:100%; border-radius:15px; margin-bottom:15px;">
-      <ul>
-        <li>Bateria 18h</li>
-        <li>Tela Retina</li>
-        <li>Monitor cardíaco</li>
-        <li>Preço elevado</li>
-      </ul>
-    </div>
-  </div>
+<p>
+
+A Street WS nasceu com a missão de representar
+o verdadeiro espírito do streetwear.
+
+Inspirada na cultura urbana, música e arte das ruas,
+criamos roupas que representam atitude, identidade
+e estilo para quem quer se destacar.
+
+Street WS não é apenas roupa.
+É cultura. É atitude. É estilo.
+
+</p>
+
 </section>
 
-<!-- ESPECIFICAÇÕES -->
-<section class="specs">
-  <h2>Especificações Técnicas</h2>
+<section id="produtos" class="produtos reveal">
 
-  <div class="spec-grid">
-    <div class="spec reveal">
-      <h3><span class="counter" data-target="7">0</span>d</h3>
-      <p>Bateria</p>
-    </div>
+<h2>Nossos Produtos</h2>
 
-    <div class="spec reveal">
-      <h3><span class="counter" data-target="50">0</span>+</h3>
-      <p>Modos Esportivos</p>
-    </div>
+<div class="cards">
 
-    <div class="spec reveal">
-      <h3><span class="counter" data-target="5">0</span>ATM</h3>
-      <p>Resistência Água</p>
-    </div>
+<div class="card">
+<img src="img/camiseta.jpg">
+<h3>Camisetas</h3>
+<p>Estilo urbano com conforto.</p>
+</div>
 
-    <div class="spec reveal">
-      <h3>1.9"</h3>
-      <p>Tela AMOLED</p>
-    </div>
-  </div>
+<div class="card">
+<img src="img/moletom.jpg">
+<h3>Moletons</h3>
+<p>Qualidade e identidade street.</p>
+</div>
+
+<div class="card">
+<img src="img/bone.jpg">
+<h3>Bonés</h3>
+<p>Acessórios exclusivos.</p>
+</div>
+
+</div>
+
 </section>
 
-<footer class="footer">
-  <p>© 2026 Smartwatch Store</p>
-  <p>
-    Desenvolvido por 
-    <a href="https://instagram.com/kauaan.dev" target="_blank">@kauaan.dev</a>
-  </p>
+<section id="beneficios" class="beneficios-section reveal">
+
+<h2>Por que escolher a Street WS?</h2>
+
+<div class="beneficios">
+
+<div class="beneficio">
+<h3>🚚 Envio Seguro</h3>
+<p>Pedidos com rastreamento para todo o Brasil.</p>
+</div>
+
+<div class="beneficio">
+<h3>🔥 Estilo Exclusivo</h3>
+<p>Design inspirado na cultura street.</p>
+</div>
+
+<div class="beneficio">
+<h3>💎 Qualidade Premium</h3>
+<p>Materiais selecionados para conforto.</p>
+</div>
+
+<div class="beneficio">
+<h3>⚡ Atendimento Rápido</h3>
+<p>Suporte direto no WhatsApp.</p>
+</div>
+
+</div>
+
+</section>
+
+<section class="cta">
+
+<h2>Curtiu nossos produtos?</h2>
+
+<a href="#" class="botao-loja">
+Clique aqui para acessar a loja!
+</a>
+
+<a href="https://wa.me/5511999999999" class="botao-whatsapp">
+Falar no WhatsApp
+</a>
+
+</section>
+
+<footer id="contato">
+
+<h3>Street WS</h3>
+
+<p>Siga nossas redes</p>
+
+<div class="redes">
+<a href="#">Instagram</a>
+<a href="#">WhatsApp</a>
+</div>
+
+<p>© 2026 Street WS</p>
+
 </footer>
 
-<script src="script.js"></script>
+<canvas id="particles"></canvas>
+
+<script src="js/script.js"></script>
+
 </body>
 </html>

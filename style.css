@@ -1,164 +1,278 @@
 *{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-}
-
-html, body {
-  height: 100%;
+margin:0;
+padding:0;
+box-sizing:border-box;
 }
 
 body{
-  font-family:'Inter',sans-serif;
-  background:
-    radial-gradient(circle at 20% 20%, rgba(0,119,255,0.25), transparent 40%),
-    radial-gradient(circle at 80% 80%, rgba(0,60,255,0.2), transparent 40%),
-    linear-gradient(135deg,#000,#0a0f1f 60%,#000);
-  color:white;
-  overflow-x:hidden;
-  scroll-behavior: smooth;
+font-family:'Poppins',sans-serif;
+background:#0d0d0d;
+color:white;
+overflow-x:hidden;
 }
 
-/* Canvas das partículas */
-canvas {
-  display: block;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  z-index: 0; /* atrás de todo conteúdo */
+/* PARTICULAS */
+
+#particles{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+z-index:-2;
 }
 
-/* HERO */
+/* LOADER */
+
+#loader{
+position:fixed;
+width:100%;
+height:100vh;
+background:black;
+display:flex;
+align-items:center;
+justify-content:center;
+z-index:999;
+}
+
+.loader-logo{
+font-family:'Orbitron';
+font-size:70px;
+color:red;
+text-shadow:0 0 10px red,0 0 20px red,0 0 40px red;
+animation:pulse 1.5s infinite;
+}
+
+@keyframes pulse{
+0%{transform:scale(1)}
+50%{transform:scale(1.2)}
+100%{transform:scale(1)}
+}
+
+/* HEADER */
+
+header{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:15px 40px;
+background:#2c2c2c;
+position:fixed;
+width:100%;
+z-index:10;
+}
+
+.logo-header{
+width:70px;
+animation:logoFloat 4s infinite ease-in-out, neonGlow 2s infinite alternate;
+}
+
+@keyframes logoFloat{
+0%{transform:translateY(0)}
+50%{transform:translateY(-10px)}
+100%{transform:translateY(0)}
+}
+
+@keyframes neonGlow{
+0%{filter:drop-shadow(0 0 5px red)}
+100%{filter:drop-shadow(0 0 25px red)}
+}
+
+nav a{
+margin-left:20px;
+color:white;
+text-decoration:none;
+}
+
+nav a:hover{
+color:red;
+}
+
+/* HERO + PARALLAX */
+
 .hero{
-  min-height:100vh;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  flex-direction:column;
-  text-align:center;
-  padding:0 8%;
-  position: relative;
-  z-index:1;
+height:100vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+position:relative;
+overflow:hidden;
 }
 
-.hero-content h1{
-  font-size:3rem;
-  margin-bottom:10px;
+.parallax-bg{
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:120%;
+background:radial-gradient(circle at center,#1a1a1a,#000);
+z-index:-1;
 }
 
-.hero-content p{
-  font-size:1.2rem;
-  opacity:.8;
+.titulo{
+font-size:60px;
+font-family:'Orbitron';
+color:red;
+text-shadow:0 0 10px red,0 0 20px red,0 0 40px red;
 }
 
-.highlight{
-  color:#1e90ff;
+.subtitulo{
+margin-top:10px;
+font-size:18px;
 }
 
-/* COMPARAÇÃO */
-.comparison{
-  padding:120px 8%;
-  text-align:center;
+.botao{
+margin-top:30px;
+padding:15px 35px;
+background:red;
+color:white;
+text-decoration:none;
+border-radius:6px;
 }
 
-.compare-grid{
-  display:flex;
-  gap:40px;
-  margin-top:60px;
-  justify-content:center;
-  flex-wrap:wrap;
+.botao:hover{
+box-shadow:0 0 20px red;
+}
+
+/* SEÇÕES */
+
+.sobre,
+.produtos,
+.beneficios-section{
+padding:100px 20px;
+text-align:center;
+max-width:1000px;
+margin:auto;
+}
+
+.sobre h2{
+font-size:40px;
+color:red;
+margin-bottom:30px;
+}
+
+.sobre p{
+font-size:20px;
+line-height:1.7;
+}
+
+/* CARDS */
+
+.cards{
+display:flex;
+gap:30px;
+flex-wrap:wrap;
+justify-content:center;
+margin-top:40px;
 }
 
 .card{
-  background:rgba(255,255,255,0.05);
-  backdrop-filter:blur(15px);
-  padding:40px;
-  border-radius:20px;
-  width:300px;
-  transition:.3s;
+background:#1a1a1a;
+padding:20px;
+width:230px;
+border-radius:10px;
+transition:0.3s;
+transform-style:preserve-3d;
+}
+
+.card img{
+width:100%;
+border-radius:8px;
+margin-bottom:15px;
 }
 
 .card:hover{
-  transform:translateY(-10px);
-  box-shadow:0 0 30px rgba(0,119,255,.3);
+transform:rotateY(10deg) rotateX(10deg) scale(1.05);
+box-shadow:0 20px 40px rgba(255,0,0,0.5);
 }
 
-.card ul{
-  list-style:none;
-  margin-top:20px;
+/* BENEFICIOS */
+
+.beneficios{
+display:flex;
+gap:30px;
+flex-wrap:wrap;
+justify-content:center;
+margin-top:40px;
 }
 
-.card li{
-  margin:10px 0;
-  opacity:.8;
+.beneficio{
+background:#1a1a1a;
+padding:25px;
+width:230px;
+border-radius:10px;
+transition:.3s;
 }
 
-/* ESPECIFICAÇÕES */
-.specs{
-  padding:120px 8%;
-  text-align:center;
+.beneficio:hover{
+transform:translateY(-10px);
+box-shadow:0 0 20px red;
 }
 
-.spec-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-  gap:40px;
-  margin-top:60px;
+.beneficio h3{
+color:red;
+margin-bottom:10px;
 }
 
-.spec{
-  background:rgba(255,255,255,0.05);
-  padding:40px;
-  border-radius:20px;
-  transition:.3s;
+/* CTA */
+
+.cta{
+padding:120px 20px;
+text-align:center;
+background:#111;
 }
 
-.spec:hover{
-  transform:translateY(-10px);
-  box-shadow:0 0 30px rgba(0,119,255,.3);
+.botao-loja{
+display:inline-block;
+margin-top:30px;
+padding:18px 40px;
+background:red;
+color:white;
+text-decoration:none;
+border-radius:8px;
+box-shadow:0 0 20px red;
 }
 
-.spec h3{
-  font-size:2.5rem;
-  color:#1e90ff;
+.botao-whatsapp{
+display:inline-block;
+margin-top:20px;
+padding:18px 40px;
+background:#25D366;
+color:white;
+text-decoration:none;
+border-radius:8px;
+box-shadow:0 0 20px #25D366;
 }
 
-/* REVEAL */
-.reveal{
-  opacity:0;
-  transform:translateY(80px);
+.botao-whatsapp:hover{
+transform:scale(1.1);
 }
 
 /* FOOTER */
-.footer{
-  padding:40px 8%;
-  text-align:center;
-  background:#000;
-  border-top:1px solid rgba(0,119,255,0.2);
+
+footer{
+background:#0a0a0a;
+padding:50px;
+text-align:center;
 }
 
-.footer p{
-  margin:10px 0;
-  opacity:.7;
+.redes a{
+margin:0 10px;
+color:white;
+text-decoration:none;
 }
 
-.footer a{
-  color:#1e90ff;
-  text-decoration:none;
-  font-weight:bold;
-  transition:.3s;
+/* SCROLL */
+
+.reveal{
+opacity:0;
+transform:translateY(60px);
+transition:0.8s;
 }
 
-.footer a:hover{
-  text-shadow:0 0 10px rgba(0,119,255,.7);
-}
-
-/* RESPONSIVO */
-@media(max-width:900px){
-  .hero{
-    padding:50px 5%;
-  }
+.reveal.active{
+opacity:1;
+transform:translateY(0);
 }

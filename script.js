@@ -1,99 +1,93 @@
-gsap.registerPlugin(ScrollTrigger);
+window.addEventListener("load",function(){
 
-// Hero Animations
-gsap.from(".hero-content", {
-  opacity: 0,
-  y: 80,
-  duration: 1.5,
-  ease: "power4.out"
+setTimeout(function(){
+
+document.getElementById("loader").style.display="none";
+
+},1200);
+
 });
 
-// Reveal Sections on Scroll
-gsap.utils.toArray(".reveal").forEach((el) => {
-  gsap.to(el, {
-    scrollTrigger: {
-      trigger: el,
-      start: "top 85%",
-    },
-    opacity: 1,
-    y: 0,
-    duration: 1.2,
-    ease: "power3.out"
-  });
-});
+/* SCROLL ANIMATION */
 
-// Animated Counters
-const counters = document.querySelectorAll(".counter");
-counters.forEach(counter => {
-  ScrollTrigger.create({
-    trigger: counter,
-    start: "top 80%",
-    onEnter: () => {
-      let target = +counter.getAttribute("data-target");
-      let count = 0;
-      let increment = target / 60;
+function reveal(){
 
-      const update = () => {
-        count += increment;
-        if (count < target) {
-          counter.innerText = Math.floor(count);
-          requestAnimationFrame(update);
-        } else {
-          counter.innerText = target;
-        }
-      };
-      update();
-    }
-  });
-});
+let reveals=document.querySelectorAll(".reveal");
 
-// Partículas futuristas
-const canvas = document.createElement("canvas");
-document.body.appendChild(canvas);
-const ctx = canvas.getContext("2d");
+for(let i=0;i<reveals.length;i++){
 
-let w = canvas.width = window.innerWidth;
-let h = canvas.height = window.innerHeight;
+let windowHeight=window.innerHeight;
+let elementTop=reveals[i].getBoundingClientRect().top;
+let elementVisible=150;
 
-window.addEventListener("resize", () => {
-  w = canvas.width = window.innerWidth;
-  h = canvas.height = window.innerHeight;
-});
+if(elementTop<windowHeight-elementVisible){
 
-const particles = [];
-const particleCount = 100; // mais partículas
-for (let i = 0; i < particleCount; i++) {
-  particles.push({
-    x: Math.random() * w,
-    y: Math.random() * h,
-    r: Math.random() * 2 + 1,
-    dx: (Math.random() - 0.5) * 0.3, // movimento mais suave
-    dy: (Math.random() - 0.5) * 0.3,
-    alpha: Math.random() * 0.5 + 0.3,
-    glow: Math.random() * 10 + 5
-  });
+reveals[i].classList.add("active");
+
 }
 
-function animateParticles() {
-  ctx.clearRect(0, 0, w, h);
-  particles.forEach(p => {
-    const gradient = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, p.glow);
-    gradient.addColorStop(0, `rgba(30,144,255,${p.alpha})`);
-    gradient.addColorStop(1, "rgba(30,144,255,0)");
+}
 
-    ctx.fillStyle = gradient;
-    ctx.beginPath();
-    ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-    ctx.fill();
+}
 
-    p.x += p.dx;
-    p.y += p.dy;
+window.addEventListener("scroll",reveal);
 
-    if (p.x < 0 || p.x > w) p.x = Math.random() * w;
-    if (p.y < 0 || p.y > h) p.y = Math.random() * h;
-  });
+/* PARALLAX */
 
-  requestAnimationFrame(animateParticles);
+window.addEventListener("scroll",function(){
+
+const bg=document.querySelector(".parallax-bg");
+
+let offset=window.scrollY;
+
+bg.style.transform="translateY("+offset*0.4+"px)";
+
+});
+
+/* PARTICLES */
+
+const canvas=document.getElementById("particles");
+const ctx=canvas.getContext("2d");
+
+canvas.width=window.innerWidth;
+canvas.height=window.innerHeight;
+
+let particles=[];
+
+for(let i=0;i<80;i++){
+
+particles.push({
+x:Math.random()*canvas.width,
+y:Math.random()*canvas.height,
+size:Math.random()*2+1,
+speedX:Math.random()*0.5-0.25,
+speedY:Math.random()*0.5-0.25
+});
+
+}
+
+function animateParticles(){
+
+ctx.clearRect(0,0,canvas.width,canvas.height);
+
+particles.forEach(p=>{
+
+p.x+=p.speedX;
+p.y+=p.speedY;
+
+if(p.x<0||p.x>canvas.width)p.speedX*=-1;
+if(p.y<0||p.y>canvas.height)p.speedY*=-1;
+
+ctx.fillStyle="red";
+
+ctx.beginPath();
+ctx.arc(p.x,p.y,p.size,0,Math.PI*2);
+ctx.fill();
+
+});
+
+requestAnimationFrame(animateParticles);
+
 }
 
 animateParticles();
